@@ -1,0 +1,45 @@
+*{
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+body{background-image: url('im.png');
+    background-position: center;
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+
+}/*assim colocamos a imagem no codigo*/
+.container{
+    background: #fff;
+    border: 2px solid #f9dc7c;
+    text-align: center;
+    padding: 20px;
+    width: 600px;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 580px;
+    
+
+}
+.button{
+    display: block;
+    margin: 20px auto;
+    width: 100%;
+    padding: 10px;
+    background-color: #f9dc7c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: #f9dc7c;
+    color: #fff;
+}

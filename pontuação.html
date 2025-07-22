@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~Pontuação~</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=bB4X8w8Bq1yDxH18OMj6aWaIlLY_ycBkFUQEShMp1BLAQuirGh8SzOLeQ15aTBkGKKhTG6GL_npnjlJPZPzjeA9059kEd_627e1reN1_ch-2D4yujrJGJiqT8DLXWnnAscReYmsiLXqBB5_9AdNXFYAaNzmLEWuWzsqWLt9_en2nsMgEuEpwWCEjGo_sn2W2ypQat3K3l4Ra9dNU05P3UzzHmfUwqRAcd-6VtSlqxrerw5xhLGaeh2DAIKBRFD0V7axkwSroxvN3wy03mqhFPVoALsT3G26GdDmvjd8qGvUNNTOce8O-4biQRAJf6N2s3wLFxbBebjH0qpWJq5LdUKeG5SdcJ6DB9P2PjaXpORs12H7xyUJf07Te2FxG7CX_FDzSceXXrfd2jJF5zC_N4BxEaUyO9733S1DLNOI4GEPA3-nGt7S45SDHzjaYsno5LKkiNurcnpCxQiIHvwruJxCj9YlneEyb4Y5XLQk-8u66fxiUxxPvirQ3ZV4QS_a0OeYE7-vaUkjajcs7cirQgvbzpbnhua85OPpyaEAYCR2ga6PeSm3Kzz9ZfK9RrfE96LN_LgjYQVDM-gtNpDNwpHrlpKE0IyOCoH6KKLgK9cqKxgTd4DWsJsY1kNJchnltI6BVlQSqUkpB0PFk15zY9of_aOXBwSzEpN02E4c1tfj6d9SveMEu1f6Eiy19fh_54FY_hVpPcFJKgDkxWnfnNWN3nUOzq5M6Pq264np1xH_ev5mJDxr5H5PVtgUfzDPD3ZAoluRAiZW39_JZS5gILpSFcyZTfDykrxzgbzgl8mELahg28ISaEFk5yhNh8q7xwTNONsVu0SBbOdDfewER_5rkScLKb0IijjdqKYQnd0NTlZB5OWV3PyOmDyyeyDsZPW5bOhqArmKKAzB95aJFgd-H1mRc8_qIy41F8MGcPy6nqR0eBDXhM-SjmWYHmppXOl0GtT4CDHJz5HYbNyCHqHjZrZKpne_zKblRdzMW9uuhdm_RjJyLYcexiSfQhTaMua3j1bJwTqs-U-HFpyG4qO5dHNT9liHHO4V397hW9COTXEDlrxhTb--JhEr-DLz_HKRw_46G8ZoR0F8XiewB3xs3rV9CtFGBucicU9NZgXaYkLA06kFOjMsZJ_dUC16E1HWVPmPBj1aKjOxiPzOjHnpU84I2mLzIYJ9R1KPa6gRHswoSzhcvh7ViJo1xXBqLVfxRyt_sDeiD0n6bbU50sgkXVJ20PxOkXY0tLjkVBzIOojjITkCY9FWxA7K0dKZA7PChegOy8paomCVdXDFkPsXnwpwaTVd-5lPp1ioj7RdlKksqhSHa_hpdjgLDXqVc28xQlNH4pEPtMoOf63_nuqp9BtlO6StnCUppiWih3c2ecY7q0jCO52g_S5-IfZwVDQTUAhdJnZ_pbnbL7H_bwKT6sJ-nXQGmiWGopVVvQs-lgd3OyoUuZy87K4kx_FcMl-QaEs8zQjzBq3WBETj8zBrm1_koirdCpg3MlMFV8yd_3zQB9j08c0kL6swkTDenhRPeJeILTTAbdAAmsOSm-kh5AUsBD61PkAAjLHdRdfpdRjrAvLExGsdZcJJGtb63IEoeQv6mFB3HujVvqqBt3KKXsgtInso4XRS7aJPqTx19fy43RkWx1kG_KANGbZI-" nonce="19ba83654d63b3d9e5af70faaed4235d" charset="UTF-8"></script></head>
+<body>
+    <div class="container">
+        <header>
+            <h1>~Pontuação~</h1>
+        </header>
+
+        <h3>Você fez <span id="pontuação">0</span> pontos</h3>
+    </div>
+
+    <script>
+        const pontos = localStorage.getItem("pontuação") || 0;
+        document.getElementById("pontuação").textContent = pontos;
+    </script>
+</body>
+</html>

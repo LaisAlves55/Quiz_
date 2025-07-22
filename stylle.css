@@ -1,0 +1,128 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url('im.png');
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #0d12a1;
+    text-align: center;
+}
+
+
+.option-label {
+    display: block;
+    background-color: #bbdefb;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option-label:hover {
+    background-color: #bbdefb;
+    border-color: #64b5f6;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+
+#submit-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color:#3a5fd9;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+#submit-btn:hover {
+    background-color: #1565c0;
+}
+
+#submit-btn:disabled {
+    background-color: #90a4ae;
+    cursor: not-allowed;
+}
+
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#next-btn {
+    display: none;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #3a5fd9;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* Botão de próxima */
+button[type="button"] {
+    display: block;
+
+    width: 100%;
+    padding: 12px;
+    background-color: #3a5fd9;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button[type="button"]:hover {
+    background-color: #1565c0;
+    transform: scale(1.02);
+}
+
+button[type="button"]:disabled {
+    background-color: #90a4ae;
+    cursor: not-allowed;
+}
+
