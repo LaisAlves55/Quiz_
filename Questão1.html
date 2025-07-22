@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=O7vA6YC9AfUPFvZphrzcVvZgvR6EGwGj4yJjbD531EqTWGOhdXJ8OcUn8CUIgmF3157RnPZsc51HDrBo4O14uc25IvC9XAVPTBKycrezhFwsn3USDwke0o-ZPFKfXpmyOtk6jU09j2dWotpv2rPBvRLX6vpvnXclXj5mZC7g3mfnu_-Y1Kg7ROQJ-3dDjgThoXTFVTeo_1r-Fzni1W3I3tWZfTH61t-fCu4WsH9YFu2v3cUY5gPXVBNN-b2DzPJQVM0G-s7GQDUTqhlwQlKVyE6n24ejJJ40vx9Ydx_Y35NwtpU6eee8g64-p-N5094CjguYGcy1CVWcGEx9f-jmIBFBKFGVGJ6SiJjhC7Folp3Ca1z92B033aw1rA8rXHsw90IS9Kay-Ry1w5Pf9oexutyciwMQTBpYarCyki7l4HHLh3rSzBhKI3DG5JEyHS3tiq-ktv6sQpPnlB0NNJ3UQ4jW4h-QFSbzoJLfjySjQnETteHMyHVoLdSN0cFeM0x0F0RuZXva7pjc909tMDzLVaWSVq3yxx7gSPDc1OjkBBRBg7YbghIsqJobYthoU10lajwjSjwSR6MHKN40rk1X52AErqce3BUJKnHk7OmwMq-rii-M9Vv55zHCUcoM_KOJt_wzrJVghOhan6581WDZcOynZIVUKqNKnlBUXuxzi8DBE3mbXxb9MdJUnIMD1cm_NLOga0OBp2SnbL8-3Edd0qOMrpSfuQZ8cQQ8TEvWkEu_26URrc608bChwmM7zXE3h1nwt_Qph42JyXhvvsfxv3GGu6cvtsJLPLx1tB1Gxds2E_eTVzNbtpNTNMXt_i22lDGGiK31BnF2Z5kJbVllOR0AD8wFnPaeuG5RqUiHNoYp_dhFyh_k_U2gMPKZhQgEhS2IevVqVheXfotGNOcMe-_VjxlIEunphKswyHf-rItyWkAalZqk0P2oe49eo9JHAostst0DPuX-38RK2KFMkHwPp0y-Va-4lFb4AbpjsjTQMvWa4-ncg0quTnDxHGewA0uVzok4iIZLHw1Teo59vvXwEv3jW3J9QccVKzWZE94jGPLp5JlzOcDOIVPZneoD0PoTSBQud_GD7X9olaz8-6pOhRAc8PMy-hr0Pkp6A_NrlVIsTnmkRGCL8s9rzxZ0u9wI888fI_Ul6eDl1LF32zLo1L-6nhirObNAUfKdRW6AWEddPa3Wrr8I5LodkybWLn5qfvMQ9aJO2mdNHZ1js1X7JKZk97iyHh9KivLij2gcY6DXDuxYw8Ehb4TNJPRQZK4N-ydyHGz_1eoEqHwn4aMCF6j-I1hi795m14ZZ90UBOyxCO-6okVvXIMiLl2jRYFIIXgd3g5jZcqFWJfSe5jL5jNtVyhh5Ie0Fxv97-n4LwraiDKBlFs4_n4GIJ7t44dyJG7HaDJoVJ-qo3ErJjWh_bk7pRtPSsI68r2F421EYvLPjd7xs6kG3faf7Bf3uGQky13MfsMck3MSe0g1rGD0Y9U1Kqyplce9qQpFPDrdEgvznDWzOpuZP6Bvnn3rrX8GfHtWCMpEIff4Poi6WNGefnJXT7OhDgZRa3c_T1---ib9JcUZZLKuYVf4mylSI2L_fAcgyQF863TwoutER_1cFdWRSZ6ETQDTIeOzQBYFYQsQnV24Kfvs5qWZQ4zbS" nonce="71206f0a2e3c1c66260fcae0cc4968d2" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>O que é o autismo?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Transtorno
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        doença
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        deficiência
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+
+
+    
+
+      
+</form>
+</div>
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+    window.location.href = 'questão2.html';
+}
+
+
+let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+      
+   
+     
+    
+</script>
+
+</body>
+</html>

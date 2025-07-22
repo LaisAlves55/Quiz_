@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=W2EmXhom3Ga4jolZ_Gp9d-OT7B4JsMw0esX6m0VzPCNFrtpdIjcKDrHZ5V_stpibjET0Af-qgito9jn9rhNi5_hWyEeibotabg-cS6LqHWzwTL8xKgmTENkHrPlHI2psXdfuZEY0LmbxKeQV4WEo6LTwtt7AWSmKkrCIkmCDfikdaUvIAfGgC6DjNvHL3PAJmqepytxKtmvBKTGRq_FOaRIx2-GIuU8ZKfJWE0WPLUh4XJX9dddW5cGaj6yCDOVh63uKYeB3ofFI0fOP-Lh92YPo9xV-ZNe8uJm6Ox_Y9Uob18g1UOYtk44UzKG5bAY3WMc4PRJEYHKEQ_-rhXfUSZXVaj-PHHMrBaEJs6GOQH_kd1pdjfrrE1NQvjn_z0-dWckcdqUUYIMyz07d1zc6K4ClykWy7LsMUhuiI56y6PogBzxH2PoG13Yurbeml5EOticki12zKKyefYkcJYCVJPAAAsnCp3ruNAqgZeiFysgFRTnj-ER0hKaywPcg21GIUhjnvjkZVnxoIE4ycuTOQSYcfECmlqosTfLuRDgO3J8Y80HVNCogvMbt8PVUBcYlv_JfIv6MYk98XnnW813CTJDFX3BiIRdAEF-kyMV7hHIVAUqnQc0xcHdCE9WnilQKbHuvjT7_PQ1-Hk9sKB4WW1z40SBnqrvgGe4GdyMRGgqZKxwGkHPhvgIy51nVFKpcQOoubW0F1WM0LrkoPpSJrRnp4GblQBHU4wlxpU824PTo6ku8_stwZSVzMYITpKkEH5a4pt_Nmy8cq9bdabSW3azrBNJfch71rh4DNp_Ycs14DaRasvQQixFMrJANTXB_LiN1YBPZb0d8NSIRU388KlY-gjnY-N4MSku0R-HXNeFe4b6oKP8fuQOXy60eFZB46Mj1LnTh6Y6VGyQ1m-8weZx_zT8dVd2eTA4iSUXr2C6pIpyEMxFhp-cPhVjMtweqnSEwGxbIaFdIMsxxztovDh8KMW3FPIa7M6JL88IPP6p-j8iSKDqNCBroezq6R5aEep-PcPvB8pZLf87pb_wbNny06MyoNXt_igGUMuf2KjwXDHhA7JOOzr4sHcgBt1LdFiWueI7iD19mlnT7DAmMd9JRzFXNZGLCvfIINmG-Ps3wpT1DIx7nR2o9-Is5_nGXRZ9zpQyLe99S-0RR1lQYmvNeQZW_ELKjJBpEP7Q5XGY7sCwK4SeMTKIlMgPE_ZjS7MNXzCHwov8JaNW6N-MVJ4qSD9Dn5cJEYV2Yh1EvgFKWlD0-0irNxL_4k_NRtgkCXEBuUrpRDvalADq_16-lk8EvaJUHC5ZxBn4sewDTwg00VXgBu4eeR6Av3nlac_lnAjqKnVNPQ_3zrdWFalftrBocymSQptsXAnyCaSYwAnw6M5spHafCcsNn9Ri4umZKRGoPDZ0tPX2b5qzey5k4UafoS1kswLhmQOJyAhP1sZapK51gm4rjPzKN-fPQGryErAfVvVOs7dvlJSQozoFqH0dw_BP8C_eHv-okrkyl0du5dlb0M3wQf1euc7xVBJCwQrCrnRjK1gFRt1mgm5WWWdqCHN4O4g_TznkkOUBpO6kdXc7wSp-GpAsWG8vg2UXTbTNzkYarpz9bDpR8pYLzNAAjPQz-JUd-jFBxcltPtXZmRfmvONWzBHR64gqDqsjT" nonce="fb00ed3bd1cc4becafa20c5050688e83" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>O que é uma característica comum do TEA?</h2>
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Superhabilidade em matemática ou ciências
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Dificuldade na comunicação social.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Inabilidade total de se comunicar verbalmente
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questão6.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>
