@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=4qoXjLpZ10T7ovLWxr986kTw9aiAxtUfaplSDDCB41o5hlWXEhl-tIADP0RyXq9LGNo5aurYRFMK2v8_CINSOySm--G6oB0ZHLB4TLKw2eHdqdnmMOjZG9aN4Y0i8_UOd03-oJYTT0ObH0aH5A_ClpX_tsM-CZ3DRhkFaWmIU6ObTstsGYlmlLkvseX20JvdVhJRqygwPc6GGEvEFKWVicDKEzCIv2O_JeO4dcgM4CqI0-y55BTZ7dsIuflkbGs2SSMrFCN_0EjekZiiAcSwv7HOobrZxW3e67akUAL7pxQrTymdqU7psOBnpCzuUz7XwwPUN_Ut0uhVbKGlseKoZ6K22farpVrPrirS_dxulMZ50vTYj1QI_kBRcSdEmdf2d9IsTWDPnwnct93f2ygLFdkXEcMUKZUa4VnSfoECOfp6wriOngwdSgzigS2psLMCM24gnSjiBHkbhfwbCYDVNoKqGzO_7A8uaTe6py9G_yB2DpjysHW5mxcL0JXTK21ZexGVBDkFR-sozWLaIR77QvcfokYgoZgT2W5h0XBbirG2gd1-4daqhn8bBRtoVBTc24p63dl64BJfuo5eQwkN7zKxlBFZR4VxLo_ls0VgnopLWI2Dptz7MYHB_UOOiYj_CFhKsvO3FNlfo1d5oj06TOOE-DSkQx4wkZ6FT9OAOJiYuDl0nn5eS_xO1v7RlqYMYoeCFPfIwkeIYJO3byyVQhdAf8uYYSg5CAEz3nRypUCC4lCF_kj9d3qdLVqcb43VNAbHXoNRoewWuOk7h1zYrIpP57SAnjwcvd2n7zFveew54wDWZoAn6xB2RBvfQ5e6QiwvRHhrgcb243vSG0kaUTvvJ0v6yhXx54IrrbDkOU1SYDoCQVmZ_AxD92SSzYmHIN6fENryQrJ8cy6N8NPfmxRMd3IIAtNLKW5_UatJHhomWmMgduzPNoNR4eXrqa65QflkXXO59DSpVgIGdpEtusPdDOAsT_vMlKoMiHIBd1PEp4OCjtx3z6at6-lvWAiJ0Te9mG2pwLb0YKRRuTaJI_MS5b94OZEiSb_X07gANhDxLSUirXoQ_UxCwDldRCMLrXkb5Ea6eTECgg8yEK9SQqj33KLtopq-wYfiuNA97tnPp0uf17p0bj-CJ-4r3cj6oVXJwWfrs3U3eaEnFwqbCXW6srs5qBh-2q4qtxN7J9x_LsTN3Wzpe1SgsENawPdLTiKgZgbK8AF5CWcH1ySCV_fo9nOzy2C34NgPp8Au6OY3ULUPmUt8KIc0gCOPmprl32M0LZ3G8XcZG3fmHGRGZFPSirSePbTR7CC2uHdcbLzhBLAFriZBEgSf1C3rckpzE4wAVB96XIfWXFa4IResQNPWJ753VKeiXoY9ItAQicmVGIbmNnH9_l99yMa3HurPuGxNNaGyAtMsZ-4ivfCUQ-OpImRLB1BnTcbnIofU00tgn3XfJjRhHIZd-npSjTVNwZlzrk37IIDZ1TlEnswoLfR0deU8Tmv2wJ7wfok0CmqgEfs7fNHnbmQjG1XoZ1A7bHFFH8SoiQ5i7_2Sv8KMmxTGAR90NNaxcXCx73FjBWCjfkZhv-jQWWniEQvAKGaJNnUHv2d60mhulcOQhIHVNYGDmcxkWGzxpeqxABkle43xR6Q3vb7_Zal37yPzBWUZ" nonce="0e36f7b807d779606127a46915cc108c" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>O TEA pode ser diagnosticado em qualquer idade?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Sim, mas geralmente é diagnosticado na infância.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Só pode ser diagnosticado em adultos
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Não, apenas após os 10 anos
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questão7.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

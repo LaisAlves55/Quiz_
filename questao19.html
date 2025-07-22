@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=s5RtpFYMLvpZQynSga3YcVmin4lWFUSxVW66Olb9GHau-OVgEcoDIPZJIwPvIK84Ne7Ig0jNuX4dgiGeKc-SKy-Hd9qjDVRxlftHukaxm-PgGNTFz9rCNeY9qAZr2vYJX3J6XujSO01BEyCwkP6HeooTOAsQjSGMBHgBNh52mzmyih5scP2rnn0DQ2aHSx2Gzh0qb1ZtcW9Smay-Mp4j6kLiG7OC50W6l22wN1gsT3ccSR8A7wGIOJIXfCF2gXwTOYBT8ETuUgeUaQlXtQ6Pa2aXAo0Aro9Xd7uogvEUhAgJtJZPTtPjvKpcuTt3ziffP-CX9iqAm5ASSA8-fnvaQHAAVPyaOYXSrmu8HZkUOoLP2KZZzV9BQ_BFyvayx_AUeidPXOi_hEb4NFfObxSSeFpsV8XyzO8up-g1yb6fpTtGyaoDO9n7jbqZIqVSqFCrbKUMPsTFxSS7XQaS17tuh0jEZ8xKKjAAwjN2Mz0fmCz3zcHLqK_Uwds5XJQ6hpVUSuGHRkKPcMU73LmRqcqyuQSUwd0bTVIA4aFhDakQS9nC_bkDakcN2UqyR0zHJLl0BdC_ljTKtsuzN--JnbA8U77ZmJQ5yeOzfjX8w7Z3DeXP-3d_Ft85RfbNW7pssYMiCPV7F-LGKaer91JL2iYZMzj_pbLQ_zMJjNnEGSKc0S_x9UwgtWM2NQrjANdXve7t6UOAJw7xdMuN04ZDbkHEKegLErG-DR7VtJ0x6u02kqz1pN-RQMJ0SSuePnZT1diYAljYymEOMO14R8i5Z3elScT4ns5eFtV3h2CE7M76_AZ1WxOAs9tL0mLkWrWgXhj1WHv1v8l7DDWIfFWmWA1iZSX9Uf3Or6F8MhpZ8ldhurEAFsyZE1ch79BRWxogTwFShihOrlhaTATmGtcEqMeMvLIDIcgR5sc3GcLk2eStpC7qR-siggrY_xmq1x_nSquS-pmiIgn0_IM6D246AnPmpZ9urQM_y979AEmJzS3VelVz3z4LCJlDqUi5RvUG1PcrXJmqH3BVAQVZ66uQ89SPMSbd1r5Hx_53XN36x5b6K6XG5DR6JPuzedGieZaMV6XbSXQpa-yFLbf6ebGp-V4weOBTnQAc3r8mcxxaUb2bjFwg3c8PCqZijOH9ziCwvmMedOdyqO-TDxJoTejGMZplV2VKIn07N0XwXIyhS-uXuMkupGSZMqJaKz3ILc0O0_5cyLd3T1hvW4wgansGOnezVYJCI3Xj3_NEdfZiI2bwZcTFTwCAiBFCk0P2ZSi7WLtyc54FAaU8wAle2cmxBYbVU7hMHh5x3YEwhvZgI6t8I9QVw178iO3N_h0djUnIzhHEUEROu6a9D8ko2UJYYaL6yVVd5ZVTf1Rd22dZJdUkDXgBD3MTEjVqbO3mkJfAxVjnsLSEB-J2ZYjy0sVJyCu8WsqSDdVdJDVnEpZO2UdtWBZn23OCxqXTYz8Gnh8wXl5lgdwQeXPUHHXWsFqjnqKJBp29Vt12o_CXREhWRAmy5MqXAgPg70IaI4bTdlmVSQP5INW0C50FNfbzLqLKmJV4Ay9aRCdYaohPitZ4G8fR_3hGx-mM3xOLo8H-5t_MQDEmMniSkHOygiXee_bA21kERCDtI-_7t8mPSq0fnkQKO6NMggSRtahK33XFYAZaAO-1" nonce="c5c9e319fa30028ff7eb42f411872311" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+    <form id="quiz-form" onsubmit="return verificarResposta(event)">
+        <h2>A tecnologia é útil para pessoas com TEA?</h2>
+        <label class="option-label">
+            <input type="radio" name="resposta" value="false">
+            A tecnologia não é útil para pessoas com autismo.
+        </label>
+        <label class="option-label">
+            <input type="radio" name="resposta" value="false">
+            A tecnologia só serve para jogos e entretenimento.
+        </label>
+        <label class="option-label">
+            <input type="radio" name="resposta" value="true">
+            A tecnologia pode auxiliar em diversas áreas da vida de pessoas com autismo.
+        </label>
+        <button type="submit" id="submit-btn">Verificar</button>
+        <button type="button" onclick="irParaProxima()">Próxima</button>
+
+    </form>
+</div>
+
+<div id="resultado"></div>
+<div id="botoes" style="display: none;">
+    
+    <button onclick="irParaPontuacao()">Ver Pontuação</button>
+    
+  
+</div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+        const botoes = document.getElementById("botoes");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta === "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+
+            let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+            localStorage.setItem("pontuação", pontuacaoAtual + 1);
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        botoes.style.display = "block";
+
+        return false;
+    }
+
+    function irParaPontuacao() {
+        window.location.href = "pontuacao.html";
+    }
+
+    function irParaProxima() {
+        window.location.href = "questao20.html";
+    }
+</script>
+
+</body>
+</html>

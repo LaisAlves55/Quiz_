@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=M6Q4UcshiULkVVgInO-weHqTZ1T5awwUfxKK163CwkYCcdWRp-bBYRD9X_x_keujy-TW029KaTCk9xQ1HWpGH6RK8SqkSvrBS1kanT7LwaFjOskuJtta5tXuF8daeSqqcgIQ9gJm5s2-fqBEbmcS7xU8MdpWtZRe7BGfdZTgNs4TF6YOJRIqgbXFoKEPGFIbyd55CGuh4ThQx7XEo_6BDPsbWsOvnuVmVDNOqmuWVV9JmfliVMTNTFKtlp5VIQH3Rq6K9cN-F47kRiKLTaMlpZkAmybYx5S-wmr6hifWEyqLcJ-kOEe5Ao_GiGVRgv-P1F4zjgKf7W-tYEWHnc1Vi_S0mUWvy7Ri2OyPj4q7Iw_GX2JSuK1GKhRn1N4iquDjrjKT7We0F-WFvhhJHRQfhGTtPMrHPH24yfZ2PQha3p7Ax77KjrUg2FTCvM6ukQTorEky-MQDanVQpYpKoShmao_UU1tgWiCkN4Z6Z-1pIZSuqlOEuXSS9yfdvNxlY0oVG49O0dlWm7zELN6acpJZXs2kVwSf7OUfv87unpWQUZvp-F7hInxwwXhBrUgL0TGpnYJmYYWIKLwuLb5beAjFAKGD785_B7w5jfA809gU6ok7dNfKVLu82nHbYAZXwNeNdtm-FeHDYvVv9ke_XQrm8Mh47a3Twcg59h1D_XFA6IpdZaJhPQIf5tka_M-Aq747sjCmi-ERHzUOnFUl3itpS-CCcYMGvdsOsbXvJMKNA8Vn6R3SqTkv0uPfKCuyAlbYiD-GqrH_TllYhLyg54x-RllL_r5MJHgkM0zINlEnPRghUwB7C5GI4kshN8P-UAw0wlBx6w6sPn-cS0GAWjQ5wLekSC86XW-dHUL3bINe1kLrQ79i4pTDvH0OGheqAKNf7SeyZD4pIhXL4LI5IwJhNemwt8iutX5di54V91G5Y5DVsmzGhY0x2b6omTj_T_xMAy6CaIMrER0EMzl4eWNqldad88nRFUxK61hGyFhGDslwVUoo58vXhhbjGpK78iaw9noxyUNkemoLjbh5CKNx9f-eGNulEJmeFkDA5KE2DqF9o5eKoq4yyiKv7Cz2FAQJZ8Yl_JhRIH_pzwPuDXVI_ZHI5_TKnfl1OyGEsj-u_8FFTSpinTojl54I3YTxWTdRE0AJaptsMfhtGLfVUaPiEbhUQ3Yw6IQBN6ilLXafStz9f7szNVS9ySsjkGSfETbXckLLRM4zjvHBNaatPH3JCrX-u-oxDjdk9fZQ4md2R7bbfssukHZBnExBQDn9i6VB-l1eFwB1DJLegLv9J5An34OAtDAO80l6cb1jQ9tlMfsAwuUDoDF5NhCY9M-_tDxWR5EQ7z2MDSPyJudsBkKwzeyUu1xqVWZskU8SG9vMk_N-toLYD3GbGkW26DabSrhDE6CzTKutRZbUBKbU--MXWlparbJafEpMn2ilba4D8TTjxdaVPtapEY1NfvMHOKEjV9NPsaDNXLFZ7MXN6xswovs06r5C9ZPN8MS4_vVcFaHxzW1_dC8QOjIav5KcixyWPMYZvchVkbTg-dnzCM6lAVvgTiGSk1nitW8NOjUFuJqxsMzf73_V6P3tBNrhUo1y-0eulkQB9hY5fQukACwoRKrhf2hyPzq3Xub7LohfCROFzel0NlVawqILk00v3R32" nonce="712251cfbf16f2dd590182d51ac024e1" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Qual dos seguintes fatores não é considerado uma possível causa ou fator de risco para o
+        desenvolvimento do TEA?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Exposição pré-natal a infecções virais
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Baixo peso ao nascer
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Estilo de criação parental
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questão10.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

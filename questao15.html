@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=crqxe3E7IYhWIGJqf5f3r5mBSa9QiOoKUFn3zQ99ZpWfpvtb6JtnXNisS8VG5M4Dc6TH9nOEqCr3-t9rSDKIEsbsEP5SPBdJjGjUnr8Gg_tiVTvWeNbwpee6NiJwi3Lr1L7300q63Tis77jIGSeJrU1BYFXdPqIuKoUK8vx7l-ajkn1Y2WYxlCDS-dMC8NmiH5_ORZH9bToRbqwVITPKe_T-DjyQbPdC1NJFEpYF7yqfRLV6K6DUpnWivmZJabHHPlhY_6MMr76zuGgQidHih72igzAjqqwNf2cGBPYhxW12b9G0nTd7DUiZWDY1Vyu2rkHfLbS-6Kiofa0XvoF_le2wNgWP6P9VVElNQummTZB0q_LQFsfk4FcQRYFO2ZuB82ckgvO0qL_1IKkErzzKOuf3uoBWs7ZPyHfRen8XroAIMeULpsoW50a6Ht79H_9f0Gigvxp1oycAjIZUZZbaVkvv2SYvkH0JKU9iytTgePwfe1hMNOyOd-hDRNPo01BL7gqUzaevaRRjRf-C8-Z8sE81CAFVbvSi-Fs52c-fgyVbO3lXPnwDUSMGGQK7KMEC12qVjJvOQ7opYfgB9GN8m4FHEQO6Jb1LX-E4AGx38rTkO5VxYuG_oAmmQM-6UKIOviYQX9tLD0jP9L1COBy21Ch1MPFB9BVSwHsuGcyS3L0nTM-2dVDo3EOW9H3KWvChlNsJ_h0cT6g4kGcxMYgcRBblpn4ygVWpf7l73bsXDMCPDNzV2RxpGBNFLhv7TSUSe2aF3UQPdjcNUcSp26m2mOCU2Ty6sQeTpLbwO8n0gqLJ7D8vkeLWC7J-_3IMGuUNUfhMeoQJIF-7EcCz4NMssI_W7ACUZlKAxSLPeZVf4X2cGH0-GTgBZnlvJHU5wT5c-J9yhs7H2WzK2wZ2l3e1HGqh0SEERYMuadkPba2sYs4GPeO5Bj1AqVEDttjQwutMvZmr9P88WUgJij1DnirfyBKkGcBtgdTtiZqTTLA6XcfSo6O7OqyYQOdSwe40BlC3gwU9sFuBSUAspLSH2gM0oj_ReF5gF4rGA92bRSFMNvfjXZierrj7MJWvUnx1wAlRnfZ27gKATldEo4BQ0Cvh0mu64LFD6_2FGWHaVWTHPraQqVfBxNiAVHOdvelzQiyQS8EukVicetRq2uVZYDGloc107ddFTInd7Xbe9uOHI2o4OmtBPX5n9oJJdnB0kiNn0tbBYvcSiOwNQD6XWsohuUGokp-bOeRGq3iCz5BTRwKXfcyepgMIjkatIfSTH12-nmutJKgpMbszTKLMYL1sBjtL5BnJwnMpn4Vg-5yeAnWGKHYAVeSQMIk5GdfkM91iVgWAu5J5BdNrzSr47IXHTZomL-gNbrHfmJHWWTvJyYGxcdjmlsouvBV18nQRtJ3c8QZ-tXdgVN-2ApmxnvL1Fz7m3Yom8c_QQOk62KTMQrjNzywrsmtyOQ5HUbK11RqhLTPAVsjVm8VDUrPFfscnue8li2DD84ItEaqTzDgKRlJA13qJT8xc242twFzpLiCRwgc1EVUi2mvXMSRBDWcu0aI2z85A9Gq-nifyYQ98LBLNL5tIejHKdB0dtdQ3FwActAjCf0b18vzw78DFto6XHBuGkLD973HXXJEeGKTyeOmZOCr2n66ilqAHVEokEDjg" nonce="875a6be4f51b4aa0b9d9744d62d957bc" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Qual a Intervenção mais comum no autismo?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        A ABA é a única terapia eficaz para o autismo.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Cada pessoa com autismo precisa de um plano terapêutico individualizado.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        A fonoaudiologia é importante apenas para tratar problemas de fala.
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questao16.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>

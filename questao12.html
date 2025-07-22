@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=T1wN_L-nAvVaPdtmTE136hp9n0M0aK8T58i6EWIi2una356XhboBDWMjeAlaZKuV0MYOVKUunlCOvr2_Uig3J-7BpzfaNVOwmJlmd9xM8SWqehhUHvS0KS5A2mt_Us18v1MdnOszNqVS87UOTcRO8w6pzoDhnqeTNeMBabzKsJB4OvBSja6Aqv_dnVGsCnpwNK8TrpsIUTv75keGM3-S6tEOWkmAYxDRcC1iFJOtA54LtPdJNa_aeVwIkzpEOjXMoI5yMmVwSITmpXgiTOUGJa0fFWhcKcIGMu0im_IFIZ6D-PJ98Smhc_UoQxaYV81IQbi0nVCUvSsyn-rJ-c7JQWu8pO8hKaIHnEk6Dbt-A__t4D55_xDFl_DKqDiJlsjC65TR1dWjeKboDsa6jTeSzTrtFoCzmuqW_PSiEdR0a4WUzgU-l4fWpGa7cW80cu4_DQa-PtN-KFMBApubUGvcgbptVCviCZExUc4ww-A2S66F5RkmBzJLILU3f313OBiHIA4A06KhFUSEiLdTBU3PkJVVcOiMcDmwU0JLivI3xnLghI9tTSDBLaKBmBVzi--cs46CbDlniWuTGuv5yzoK2mt2UCPgcaxaERhFepOoalfhSNGM6GrzIYbpln0aMFC2upyp4nuR33rKTyo3WvDh0EOkUUwMjMVxElsRlVLGu_NLu74GZsckKf9scIvLllO8GWz-p3JSFaZcjPWPJbdFut2gK5_N6rq8MAtnTFOYzqPJ-VRf3jpjxRTFgIP9DC1qC5HxBc5B1DjTJE-eZeiYW40mkNOyuhSO0QgNRP1SsCUjMw3ismuD0uf_I5xsfJpf693kSZ5dSbJo-QnoNMYwF-NWCVbwtuEmlM1h9WDOSNd1vk6oONmCc6w0YqQ23FN2xYmNCussDPcjgtgtB2xPNALgaPtP3KdziguhdpVIA-ID4lTjLZOIQ97l0y7oYDaTiIUfs8th7hwTgGlbiWce31JfmdcN2fOMDjTmcEr_vZCCdHYtGiUfMwZK8wMb68P1F7jtA-YhG085Ucj_FbYDkBN0iCUheOF_630XTv3u6GGUXWSkn2CRNCyJHVlI1EG8ie1kD7DW4gIYC6_UqlxMWd3u9FinTYaCP7sxojIhJOdPWHifW1-hk5x68XgBMeWNaej7HxwefebfNqzOEx05fEZ322RjO-5A6DrnCi1lctPkkAqs8FwewfWC7Im0TDHvfzlzAecGP6nokgQgdDzoFyjPIJrIkp6cfpvT2t3jT5XoRgUgtzlsXh_VEgtqPmkojYAbJzzJY8k6pjDjD_2BVA4sBjMB1h2cQ2omiTjth23ipWf9jjuNETvLJxj4mmuxjOdKLVZIoQirf9ttu-aaeRJXuYGHHaMA7Xzj7g5r8LPlD4Ygf7nXXOY6GFUt9hx4JY0hGmJD8_5DVimc2XpCU_1bJJj-O5SXRvRtTr-5onUllje6lQxvOALi3d3VkGs35MtB5rKOKHj-8tI2Sj7LgL4x-yZxOOhd6bmaUdP_246cAhvQRaQWGUpbkNhHZtvQtgVA0DTBcmxhhcnqq4D3_Ny_hTKVyrAg0uOh1m7MBoZDDoEhPVgbJH40SaotDDt86k6gupaRdOwHGEH2o7HHpVYDBZfpMWIKNh57Y7MkJurYtjZMvQ3XK_knzSNPtvH9" nonce="86f8e6cf86fc9d4572ef0c105f590730" charset="UTF-8"></script></head>
+<body>
+
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Qual a relação entre Neurodiversidade e autismo?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Neurodiversidade é um conceito que exclui o autismo.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Neurodiversidade se concentra apenas em pessoas com altas habilidades.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Neurodiversidade celebra as diferenças cerebrais, incluindo o autismo.
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questao13.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>

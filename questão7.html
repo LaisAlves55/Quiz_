@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=n5toY4ar476PqTMJmO9yRyIRgKIPSNZGXUkEJHhl7l6rkmn4IkpVKi-fIohL9Drd1JH17gyacXXZ1-gI_u7craQ9Ay39ElFp46bDjWaZ29anBm9uTdgDhQa8fCH31XxbX5iQT0nePntJyN4a_kjce6llHxA56XCTJUcgUxAZoUrlnjV8amadK9oYy322FFUEfoiQiae9l1W3HUtGhOcKRfZHNtXpkHZyKVZFXxWrNC7p-fBKpVcux8vrgey47A9f_7gLfyLsDHs78QDGit1xE-0bFMqRddt9W2xKUsDRyEzZDE_zh5ahsWeV6BGPQ8f-k5p0O-HskgNZOBrmVGzfEiapaekU3lKQ6k0vBg0UZeplYlnO5gVw3Wp8N3tMZG6xAB3xfoGqyn-xrKM8qMsZx9_8rzKoR1VYFw2DRWAy7mGh6uwm0K3YxjjOM0jq6v6bUe_1HYKaK4UXu5mgkkEy74ZrYZODFaVApVHW7qvvE2v-V6ss67bwOpmALbhrKqOl1PIb_DiZtJQO3zhG2NFYlZlnTboCWKQQgJzi6eeUApNjQrzt_bASq1GwBEtHUFEisrXel0JYIGUF8DSNwPbjDKllwCY6AvXc7hFBvTt2y7-tV5GJ7FUgVw0kWuJvznQ1mPAeFZAOjdBllnikbujDnI1KoVm8qgz46YKDDUbJHo770iQCa9OsFkcSqMfwlsftDHU3O5WW2ZyGIspMJOVLImEx2BQHe-jI8eoW9TTIYQKgGZzJcNfCmDoR-ZikTgef5uQ42NRbPMLsYyR8UwcFCMWpqAxt2cVTOKkVvVFhwHvE5Kk9yZhHcT8hWSf8hUpKLmD3xaz_JmiwJAv1lfcxE9OKGe1m_Arbrbydpzp9VdzvQclgUMG2URf_HnkaUWrAK5yPoPKMjaJ1IdoGZ3Am9273NVsrIRnEdXhYK3VKG2zzJ8MZCaVwGz2XU-1mV6MOKSKbbYSFlUs4aNVWoubZWv5PWV9QbEUj5z_3ZysDgWPa-9bFjqJ7XHZNcOolql2qD-QAb5XCfczN3b1P7WV8xK_J4quyKSxgqF-762j2itFW8YOEVfYwGyLpAXrc2D_REYBj7H6J1GxbvEYBydKZueBcNORpOSeZ_9en0wfEpBSOTRyWoqyGgrR1aF75AHnG1EsAIj6oK1jWF2T4qaieKgmO51wONogHTAXb8k9hSSn7fpCPXW1Tg8GJIhlLoy1Vwl5l3jmMlTFy3fkijouJSY6WVbQtqQE7ws4bCvEWp-EKeFmQVVwFJmkl3HgTfMiIATKcIwg9gLnQyeSYwpDRaawkYx1keGL3lM5pg-UNjaPHn6HIzv04sFNGpbIhLC_WkPKRPjs8sMYvai7zAdJR-Wpzv5rnhff83pua6ofcIPDULo2uicmq--ZTODc0ckdQjwmfO8dI8EoTAIux5KmoADrQWybeLHzhw3O-bat0JS5lrNsi3NVx6kcZbrODWQvcFLZlJnJb4-mxAtSrkAhPh76A23RWgMQJlYcC-y5hTl6ZJvOtV6etAyR9YHrkmejDtgAdqLgcbErIH4t5GrE953BZN83Sm0-oMtDNDIXkpfNM910XrGLlOS4c6sQ3sqFAQ8nxB0-7Dd-W1nNXXTctZLwLjOoopmgLrrlpnlUjOAuLvMKTl3hA6DjdgZ0LI-5M" nonce="b6613315dd3bf491aee1481e8f25494f" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>O TEA é uma condição que dura a vida toda?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Sim, o TEA é uma condição permanente, mas os sintomas podem melhorar com intervenções.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        O TEA pode ser curado com o tratamento adequado
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        O TEA desaparece com o tempo
+    </label>
+
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questão8.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+ 
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=esdgtzaqkXnVN-26q3_J7SKAka3-_sdhpTIQMyBFqHYabrbmC8RLfVg3Re1-6IjEhjHGWfpSJKx3xF3B2GMqgtJMii71BAQTrbunGJIa3aelrgkQcvoQ3i7XUpnKG6KJPY4CwV9HSIVzjKSIfbf71_SuJ7GadJsu5t9FEGE7ZYkos6Sa8FB-RQauNVW_3GX9GStdnhAHdqxMa81ls7K1Me5LGTBYj80vOUNGaKJbe3X0ez59xFTAzSqJIppHG_1tg-Jaal-it6MP38iejjuhwcge80C4tArYoWeSQIwB7I1CPsy4X_OhwzA06VEn9XOeyBiFMl7UZIBvZNJGquaj7LH1r0-TMqsMpmqq6aBY67A_5i96jQAu4ZnyYy8g0IAhGjJbnJOTIRPt8FgugFEDsUrTB52TF1v0WQ5jPtiPvYvOQWH5f2SzxUSmErIueuFV1-9p3SAjUFLPvhsLBEUUHOC1TfaNKpmsL9yb6xfDsOtcO1dXlZ0OpVgfH2x61zJPlhBRpi549zcFZQrBhzgb_HjRNZKa7XgfpxhwGtaot91rbT-j9TqlVo1outrDLZ6k-0nKxaCnJJntxrpth0bFlu1hwMNCg_pwAJoAgk-YNE1msmEBPt8d0yZ6nsw4rpLtrp1moFf7Qa-Xh3tagUDOQ4svJy3AjC5phttlHigV3pZJhyEmbnw_dtKdNTRUM10WgaU270Er8YleIKR601sSILoLa3whdKKoB2vav7Rd75V2W7I0-RnegX8lBBuqJYzLAckzTuXn0mfb50dbirl5NXMi_BItk5IzfD7hv37AdV8_H6-NEwOix9JSnNfwT_yOSIbwlhu_u_fC62USdxQBx0naFv2VP5_p0F5EwkL0zoWxXnWzA8maBO2hZkySagP1c-yLJ-OQWRlnw2BYbyr7xmVi6EZikamIunDJ7rBKc-dTw36yLV2JMCXS22NPi_cvJEWHy7AVzkKCPI5fnNZAf8YWhlHa03aWKm4-A4fz66uHxfJShMBqRtjlsGqf5_FwF8-JBf60nA8UpSlaBEUyNaWhP0PH4cu0gwQhkebxA70OVc0Rw_xbAVAHIGtUPgwLZx2MlZ1w1CTpuge7FIp-HJEuFUoQKUMh_iEtS1CCqcW5Z9R7CdZuTnGIEsal6iRYORlersR7sPRyr3CUAV0SfWhXfQe9PMPCGuHTqBKFASz5x66DHA_ENEZAfTDyh9wYZUvc86DiSabIB8lg6V139tuQ3LG5mM_KupbiqjWLA5467myfkz438vD_ttps-sCMq3b9oRtTCptCwoBHi5YfLtEs3n4V2yXg9KnTUMdqOocqxJq0-QkJlKUsc-FeoyOKONB9fH476mXnWeedolFvUHSWVj4lC9m870WR18MGmWxswHCYhWO_PFC4YWmSJjkMFfuI6kK5LuBNF_we8ZXkaFt0qpWfl-F5VVI4zqASXvFkiDfYKGAlXe89sskvfd6bKcBFKkITMgWgrB3-KHZPdf5yMTWWqEb0ABxk5RCB1TOiEzP37npwn7eye6uNG_byz-JsubgsyH7HGqDGrSjkEof9Io-zxy5w-rNdE1eu9RZKq_kWcUTT0kn9qxN5FxIDeVxb0w3ClXUyflt9ClY2VU4TIQmRdEcoGCpc654FTAjHBm6yfGBegFcEySNlvVzD" nonce="c61c0286339067fbb40bae6c544e7a33" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Qual é a principal diferença entre o autismo e a síndrome de Asperger?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Não há diferença, são a mesma coisa.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        A síndrome de Asperger é uma forma mais leve do autismo.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        A síndrome de Asperger não existe mais.
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaPontuacao()">Pontuação</button>
+    <button type="button" onclick="irParaProxima()">Ir para Nível Hard</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questão11.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

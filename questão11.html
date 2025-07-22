@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=omOvp5ifARfTPZxKOKHCFRdmhGwmrZ_JeJADtfv_iuQ0mJkECxvhTCG53dClxwapsSKiPyyhjaJnShwOZnNwv4AhUqxkPDAfxA-b-6s3wSuL5EoxNrfVYmmyz5plLsMov0BW4UMlWRKOwzwwCz1SxVqld4KNLNhpI9d6Q_eOQ2ZC9wNFSfGAaWD1Jez_--1s8iqmnvC19Wb1C6SIE4DUvNjM-AA6M1pUts-bOVIif4Q7JJDc5nr3znvATKR0seBGbUqdzEFihZ0GByasQzdSsI1lfH64i3wC8MDjYoR052_GQndUksxI8D56D8GFhHi-9R9LLYkFvIt6KdMv9PI9McFtqpSg5PvvcfFURUrDXFEXSTbDPK6Eu8LUSUq1mzGJ23zkdj6HE01JtFN5s9r2EVBvnIV0m1QrObRZXokdvMGi7OrMGepQSyHOlODitSOvnyy4d3uM08KRX_YEroPYdWASX3xEkp6Yw_zjAKmXJIPnBgDAcnxc9CRwhOwIB8X6S4dTj7LJZ7vTHCBKuG4boAcwvJfj2PysCdbP1HNmV3uiYDIh7aDGry-zje6f5YwJ-xe471Mk9S011Gb3Hw687dzjBOhAdSXqkVUKSI8-Dog9j6CQU5bBRIXAYtbcNSmsKZtpiwDN1wDnBmAA5xYYYCKbvhnDwXlDT9Dr7E39CUt7i69-5UCNnSW3eEoD9FIGcQKzSxW-qDaJrzxcTtktdx5F64vDbjBmgC1zzofdxSj5f0coxFPlUA35uxJuM1oMkEl2dHqGSXR87Et8d2OPARTnUcqNvBMa9Ep3el1Knh_8Mnh5EvVaK3x7ZhRVnYRiM3qGqPbQ_FAmuW1K4wFtHz7STYrlakurosyhBk0b_ZBU1KBLjUS4omsVTr6gki_FAz8Ro1i3XjYIhQ526npj-YPK45kDyZv96jt6vaXUKgeyRC2drYbxtb7nMtNbWRySZ4lpkRlT3rt2eRQrrTmbiitTEH0L1XXCeLomV0ez8pvWcGI3G15EzTNxsxJ4bzSSTwV3XmVt08dttP_XzY1xcUckwTSIW_16ct6rC-shn1E5_-ehUGfmi2JefGPfoAGjOFEe2HWFWLxJs7jguwOjsr1eYhCv5Y2n-X2jCsToY1BiPqwmUVyJDczVxfYPnwl3ofR0LemumdnipDLncPD06IM-FhbVs7I9uqciml7XCaw6P2bPV5qK2XB7RNDweMBOHpzfdox2dMJW3FNYOHJcOi5X2OuqLDnqCtPBHNplEmCwFKTE-ps6ZIkjhQF-i7vWBjCdz1-1PCWTQRwRwKfGXH0afjtN30Zl2lRf5D0Q1stYDzg3hrHbnZlhRCprrsOOxeGIyv__jcVJ67QdPTVA-PRwUd5KW1C8xuOI90eLxSEpRN9J6hXvMEg6EPKE1tUDiqj1xuE-8Hf-gDq0G-0dtdm0kv-EWfFPrrx15zjcrVZmJfW4NtZSRXctB4O-9vHYrElbM2rKR1bxQ2GjwTm7AgiW5VIwoU1-QdUM_BcFeUECrElwqR4QLGzBq7Y0khXqpiun79SxX7WkQ9F80LumKzM9izLABaWOto0NF9P6l80O0ruhZ8eMi4GsI5LDJnu2SYRjNcV40AFm_DtwR7jLIV9kTnhH7GOX0iil2ZRH1inyRmFxwp-ulj06ZxhB_vm8" nonce="4a2a29aaaf1063346b92b5dd293e3e0d" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Quais os níveis de classificação do TEA ?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Leve, moderado e severo
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Simples, moderado e severo
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Leve, moderado e profundo
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questao12.html";
+       }
+
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

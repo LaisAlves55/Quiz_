@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=JnfLlTZkZROQt53KwND72rw-NIzwRGFdKopgrPx9X4sTYeVR-bIXb0BgBb_wwQeFY72d0VPBK0tGBf-MuFmC5LDvbuvTGIu4b7SVOcIO-xvPRr5GEehT0grpmkJwTOk94MUPFMqCzReRx0cC1C-1bU-4TK6ipzT91EXIm6ny1qLrx6kUqotOyvM6yLs-ywn9Hvvw_w3_zgy3Mmrkz04lypz5gtRkrbSqmeIvERPQTeToXiPRdmBGJSMk15Hr3zrB2o29D1nP1dBnha6HFjAnYxFs_wgbrpk7hl7fGMfEFfgjCHGEdG4aIDHOW9yLh5F1erUbSi7QJf-4eQ6lIxozYYeDf31uNoOwixTiomhFMV83S8SJXXbHdx-0v1WJ-HiIQNGV5L3EdUY1px_RnMbq04-eoBSmXhX7yBiyiDjvoOgUN5iDsZAQE6xtPMzka4zkGJiYuYols1_IJMxDx55hblq9_XVKU7LuJFXQMGmJNeOMzBlou4UBc9I-YYpb4X0eyq_a7GEFegl5kKDuSrlHKsiC0MbVm8knX96DTA1UVLzHC4IqXmRRS7zMPaLB2mKOwY4Uns5voVpVlsDhikjIh6LPjlEVl514f3RiU3ygepf_bTglNQeYNgNOirli2QlZahxgkklYee7-s9Zw8itzgVCW58dg2bl_8-Q6Fz3ELv-YwFiFDJzoRvl6fLai3O6rzzAIEayirVarJ7KCYs36nHn29bCYLiGPvAQjchwp_BYnv0ODixIs8pDo1UDA1vAAcmGCVY_S7HQZ0xNPxjT7UeZyBTmeJQJUau93R_BXXlViY7VVXbHdaEP_bufcs8NwrY8LAv_fswuO-3hnOifpMeXRn5axForsPxcUPPCt9uQK9ZznAohb_hyAPyhnFyGZ7y2t_6Y2-jLQMYRLDH2IAeGaPrbgwfjJUddjCEen683GuJP63DN9gQrf5ekGmxggGa0tI-pfNQuzIK_gki0C4VQ0P0gJBrhjtIAF0SL5d5cs9DvE9sNrMgkQW2zC5QBORuj-oMN6NnMkB6So9qa4J0BgeOrA54BAPZ0WAAay5eGk_3vavgPHVv66H686fx1UeZ_pUl60MyuAJuMMf66cjAzsw72jWS4OEwaCrjcEo4szjLlhIiK3iPKkdixnsdvl3Hf9IPRPmoQuZLsS7vgPfOjYfWBRPDFwj1dDd_fQiVxSGSojnpLwue2i3IwMqmjYK_suvfTvH_dAOwHsnsPotFr7lOkVHQXJ-NZlcHSS_pYSnnttqK6TnN1tfjMVL60XSzmQC9QlyTNp7vmW-Ww4toQYqF1j17ywwveyLTgKIWRe0sD0AnIvTxFrFTsuss81tUiOow6lYq-tWrxIKarS6IGuVn7iJjS282sXlUJsacytmQoNlFDAy7Fb-Kd4Osaxve7TtDO5q6lRuQ9LiN1xiErVCpL-i0jLc4Aow3NgAlbP_jdE0qfFMoep92d505gj8VlnL_qioqJcHnwSWPFavfUt9jiNWtZ7zMNrYLu4-XaSVRRifbiuAtarjqHHR-3cNmLh_DB70CYhbN4fte_bv0ZsiFrCzTORetLAxJh453iBhfYYtN6hs2dqxbCCdbC5N9lxjfWTe4WEpkhazDJInYsnuOSHrPWc4MWbtwsywfkqLDsiHIVbGip1uqcJqhuq" nonce="b2bfe72546fa85e9651c09352db3c345" charset="UTF-8"></script></head>
+<body>
+<div class="container">
+
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Adultos autistas:</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Adultos autistas não conseguem ter empregos ou relacionamentos.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        As dificuldades enfrentadas por adultos autistas são as mesmas da infância.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        O apoio social e profissional é fundamental para a vida adulta de pessoas com autismo.
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questao18.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>

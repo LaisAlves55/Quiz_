@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=djRV8K48W_dkVm_eBMyjgohjpZPK0cNRbTgBVIpCSLj_QP99eSS6wVWAH9Hbgz_XKiY6DmMtHrsNWiU-rbNRxREFF3mXyWuh_VZ2t4dGJI1LBxmdMnucS3T1h1nSOiYw8x7q0VvIxnIEuewdlSsj1sNyvbx1OP8AqvUoQL1tMSlKV12fnFpsTcbRkN_9Iexs1uyP9CW0ZRK7eRTqxpsXcXG1sHJgiPDDV_ETiyVUKqFYJrdWVvuLo50TfuZnWQQeov6KCXlRGHY-5JkDPmt4uQAD12DuOx9RuB6Yb6Cc5JBluagSIvhTFf53q9pmnzPXVlVr1Sy2O4fvsrjAhIu09omkOBI3mRe4P1NfkLu1eToG0bCSs0oH3iejYVbo6DAcUCMjTfmBer3NakE1UC1hpN6SRoYvcWE8aPxU-PfBTPoU5h325lcU7NbCJAMSp9AGWpDHSC7FzgGnjjxOK6hn85lU_Ek8Nm1lqyNwsPKD_iOnYYDdqEDubfnA8JTQejcrIKknYsZ7QQLDivEMBo1O_WEavBhYsIaQw0qd1WcEcdW7DN6qNcj3rN5s2in5uNWc6dv_CgFAeQN78TyFSOQVyn0xCOU_U6T-14RuI5xioWSpvJBMIBEqXYsJnF0m3TU1KR49ZWhhzfDyo7CrFBwBF50V0i7Hnh7gddxiLXX1lxebSOLSiNoIC43blT91Z-8mRdeDZdatUGxJG9YD5R_HmeQxOj6dxzHN9ieGFWxAswIz5EnDS5jgKcwzV_Mh6jAGgS3NbpABo7Thez_8oW6OhunBKU-7me6Ez1KT37jW98dPbeXK7Tj8M4cOujy_KgVU9gcaYER2rmn4xzSJoglh9GhuP8UJQ3o-NtqcsyUaXsI7pWVQ4c8Kh50Y-6EseepUpTUQPb72rqDM2IhsNS5MbFIwgFrsrPDZSVbmvEbB9WdcIocIjzaIbozjRh9lUosZQQfpfK9DOnmxnsUqVO1t5dveDvi5zzeKRgtqO45gBYh4Gc52Qysiv5fzBfHIE0VIlMRoskC4zbIG0_J0bzCMuX_unKfAXOd8NEU5n0VZ3cCVhTQl9a4dwhx6vfq6Gvr-oVFJctE7TrQqTs9P2DcNeDqh0S2-NT5os5IqpLZbUUq27YeRQlr6Ex7FVwYfjLyB8u2LqsrZsDDFU-_d8ijREsKKrPk8wp7eAX_xfuiyJ2XvqZt-rC8hKqaWxbT_WoH9RID1u4x3HLrIvtC4EZEQ8jBuWPSA8Dn3mGhybxpT6WFY9a5S9reM3F5xgJc2gY9sZ23mETOxSmU8y51kr04EOmrTb-yUkTSsXBcotrXYYzT6crrVbhSWEnQNAyIehTkLkeb5J4ogvXnyCbG96j09L6NE_5v-7kAdBqQ7Crhzd4CpAh7Ery7W98s6Od5rQW5faweobJdhb3QwXEaVzeuBzy1h2pJdwcY7IFFbOM4FXVcVNGpHnewokYyY8ag9QWWmj8ZuujQ8ABr454iuq6g07h05H_VdrVE3FJiDMyHtpMiHTqNoZq4Jqdfm3CaEzSc1YvD2OrB_une_-fkcSSC7X095p8KtycXc4CBsROUMlt1ydZsmyPg_J1nFcF-5Skfuh-3nDvgbyK-LK-vSzMkAlJJdwiAOVwkPIC17aqygq-pZwlpQiDVKqp1fZMnJv5JW" nonce="a194edee2b486af02fd28294ba7023a7" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Quais são algumas das causas do autismo?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Vacinas
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Genes e fatores ambientais
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Falta de amor na infância
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = "questão9.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

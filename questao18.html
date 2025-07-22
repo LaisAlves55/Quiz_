@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Gk39zLGwc5LXbe8j4CxozmOl2_TynyxyMW3sApa7-EnVmjJdk-91MgcFAElLtO0asN7BjQG23FEYFq2fBwLl9IEThi02_jzmGKWnumd5PFr72MdKfBefQYXWaax1-gM-OlvK6qteLlpXXSFK6xOCxjXPGkD-DHeLNePBk1L2iZ2sMQquhyLVNRhLp73zhjjITJVbYVUGRtrP7KX36H7RldYcSzy4d6S5fGwT_hdTHo3fGoStym4amcxPZlbNbOmS9feg18bfKfZV1hsNDI9zgJnsbE6v1irQL1RT9uVN1GDEDzT7xVFvRF_ji9cCrZdQRDjp1M-yU38cBfHpIHOdXxq4BfqVtkvX1_gkaL6A4paYJxx6XfhTbGKMQzF9KZ7DBue0WTk1yxHvpY7s_mgsfH0K2FquYOhMSnRbRcbIaD80eBKTE3UjGyz-cPIqLxMnJFFiXtnMnrqyjM5DfaOQoT5aOQ9G3X0i2VzeoIV3n4-wqbgNbtGzOW1Gf4EFrAAycluZRezMhPd12yUvQQBaOgIZtruNo4HlGbCmUwcV3PH5ywar808QrDTnMda4IlkKOYa73VCs7QYxZ4rTvqmcVgnhJ9cpHEj0uJtzxzkBl08JXZySM3hh6dNE2pCyxO2sAstnCbZWIrbnSUrMyA1camMs_ex7Y5V4R8F6Z7zo3WMJ06UWb8-UqAsXOZmh7f7umCeO2pbDv7vfpIOqL6ngBmRqdhWjZTyiAdz_o2T6ncLSIcJ-VMzIUQsNtdL19cXuruucPwxu5O0Edar1-JnjTLWWpLbiDDg_Ejt8BZV8tEvj_E9N2wZMFDwqu4qLt4pb54M672hwmfFecVBPM1iOFhlf9gHSEkIAfAN9VThU1rkcN2KNXUD-hHGI7t6Lc7BNJ5gN_hFgako2Mt32SKUuQRDpN7mf6FRe6WUeas-2SHcWW_9W0OcDHr9P9Y3jJp4I0wI7NgcQZkm9nbAe7VjDwVNN3R406u_rJ8c7zzg0vP_R18uB4T4xK7cKz1yepOEKH2FbfpIbLHrTzib06AUbf6P_7YjU1sO8_FQXnyyUHHkibnojTTi2R6vtVK_Z_U7EeXZLm25xPLT8Tu14IEMObi2rstiM1Rcp75knLtz1Vhs-sWQL9QDYbRSqcujOx4b--_Yma2gQQBP9KQFU2bGozRnRn5FzsIcOvBGUoyEh--QXXvc0NxVltpmWNEMXneMryXA12s-qKkHG9i0U11shQtbMvpuclv8EyBfhALl3ipqnvFgYQP0rea66Y88IX8k7dV0gYpAoYGD0lTLyllwM4j0DspBy39ViA-zTk-sn63RW5WKWY27iNsTy99PWmSgWKyr1h9IZ0_PZp5khx4LbxyGMHSgDqJje0_oLlk8tTmAxEJud2xYAn76dz1Z_vQHFZsq4E5il-1giWN8sQsBkYAbWM3a7_V2vRkYoEM0dtbikAoRD2ZU1Pu58NOs3skBAMyiAxXStjD9aXVGtk79sL6tEXm6EazOttyYoMVmerP_ckiQeXCRsTnXFSgN2o3HA9v9xsvsAQOeYnlbbTU1H9Sr-i3x-KkiCTU8efuBM-EyApZozEGSjqYhofEc1NO30ZVdiVmig-RDkSckW887fllYZKAXCOk1Z7lmtJnQU5Qdvlbf-cq1NXI7awG1n58Wl" nonce="5414f30fba62f134e605d4c7dc54e118" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>A cultura afeta o autismo?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        O autismo se manifesta da mesma forma em todas as culturas.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        As manifestações do autismo podem variar de acordo com a cultura.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        A cultura não influencia a forma como o autismo é percebido e tratado.
+    </label>
+    <button type="submit" id="submit-btn">Enviar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>,
+
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaProxima() {
+        window.location.href = 'questao19.html';
+}
+
+
+let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+localStorage.setItem("pontuação", pontuacaoAtual + 1);
+</script>
+
+</body>
+</html>

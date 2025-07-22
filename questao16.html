@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=gtZzUW-tUTxKf2X_Pbd2VEOaQmVEe-ToX9BPJWC8DpJE86MW2jW4nd_fTMZY5K23En9O1KWUfqcuNcH2x3E0U0AF5C_boazq39vIvSmYfH9t4nxz1je7BaOqr6hlYJ2t_pgYqNd52Z0FlVFvytjXmOB4W8cdWdWgqal1-t-Szbg-MqI4ulipKKQ6tqoRJU0clApcDnXFgSTxYGehjXZEI72RuVU9llhactRtmWJh0zACMUl7c51vcDv_y7oFaAesXDXl_b8ot0QlR9XCWs8AobQnh1MSFiMoHIZimObhecVoPNaXsODD_lCg0IThabAORGn_oFzvoQZ_zZ83o02d6uYOQxSQCFMG0LZ1cNLbTFMfgp1jOWpZb-rgE5nKgBRT_NUitrr-ymfiYACakPR78_gKBmkUumS1AcUlOo2Y-62vpimdjINxQVritOC82j2Mby27R96PWyqLdgk5mdlwHpiPV3tda6nB5FfHIQoEmcMKEatncpBzEPeG_MceW2xwBavUjrvnyzlStwu-sQPM1cXQyj0RpHm_o-KhsNOrfrRHLWvn30Bd18TfORHFOE8PxuthPbZ-gYECe1tZC05748H45MxMfy6EnmxEF9YJ0biM5LCfU5PceoHlMJaCUCgivYM3eBbH5AxaIOMA6HDmr9vNNEE5wq4n5wJgjXH5V-XfdSspCqG6DJf39ZgRmVjwc2_atTZUXE51S3uEU9ERfUEMCaDnlvnijLmJJgpbKiCkt-37Ch2KJkMdtTrfq6hZdkaTLdYSpf2UsTwBdTVuiWBbsyUZOy6vFZIrhoCWzkF7P_oEMtjI74cwBVOap6eb70lrLB2W_KiEAv9IM_O8EpQz9pro0G2eAwbZ1oAdcnaAiOl1-UUicvZfYCGVUP2SjIdJNmVsh0YTgPyJRQBzDN2202lggaGa9XBeo0f1m7dU6V8nOlI3ratqdNSRJcepYLJgToRI3OsA2LPl8OhIcM1bewrjA-4qnlY5mOz0fdOev1qCmL-FyubFbAJg-AauYQRlpanDMDqbYyJloFNste0jD5NYZ0LqjImjQomxpfuqyZKLpjtX14UTqydwfiU96_wPRTlhPGhYqbuVtYteBTmaXZqKjiBUxJX5kyTfKKd8220OvqvX_P173pulD0KGA1HQABpu4cUC9hWY5HIf9uSxEa6-Jangoca02R6RZcd4kv5npzW7rAxhTBU2AwTixDRFnY2JRPt4iSgHmlcq5UPvTzc3dS3GH5MaQjih3EPwfeved4ybUVH7pAVyOl3kkfb2heEGJ0nQvIG7wBFP4OdjTzfexgI0BWkmRkeTGyJXWIK0cemgi2tCrFTYQ-HT21Ch0yH3llesNUj7eDgfGlg7__zLYcnRb4J1J1EzYCGkVLXNMWihx4JWhfMnUq7UpRY_ZdKAbRnR2fRrNuQBGK9tk94qu_L5eky4uZ7iVDjDSejemK5w78q75NwUe6f2CpYfWpkgMwoeDG-GzHoxKjheiyFSY1NOWFMaGEiiYJxCuu0vRoGYclop7FQZrsb-NKYzlL64Caf9CW2Ihu_ObFE1Jb2nFIotAb_5p38KKZV-p8pYbjXD4OQ8MQNdz_-vxha_7KLTqBTaZ2xLhmO9-m69VLsGwkH5UtyJhUPL2tKMcb10R2SyAQhPA-hL9xZb" nonce="69990a39df30ed91f10121768842d067" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Crianças com autismo devem ter inclusão escolar?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Crianças com autismo devem ser escolarizadas em escolas especializadas.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        A inclusão escolar não traz benefícios para as crianças com autismo.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        A inclusão escolar requer adaptações e apoio especializado.
+    </label>
+    <button type="submit" id="submit-btn">Enviar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questao17.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>

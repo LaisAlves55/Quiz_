@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=1P0huBxVgfNFz3DoRroiGftmi0f2JJv956ZlQKyxGYpCLy2tBajBT6gxg9vxvYdkxRSr8Go1U6Q0fEqUr1j44-nYT8Q7DA_0T_AqjGg-CCPu-yIQYomQ5Zdah6SdOK1kKsuAdWNY46O3LpbI8HEtog_KUgGw8uZ_21r-9Dq5uzPvyaCPmqnuGTVPevUONiPEKmP8HEZtWW9mp-eMiwA96QlatPhBVHoX9aD6bNd8MHw3WKzre1dkXmqzYNJrZPbHpVE4_5AUSGlKFe-AqMr6wa2-YiiZkljvhdPvALklOb9YvT1_JLTvu_WMrPAHKbkohQMaqGN1b56AYcJXRHFP76x3YtD0hoLObPo-kL2kW76CdCkQuVHnbHbSkE0kjiOVbiXA0SR6rtLM2keTtq4FulTsJJCCVyw2ZpIN4ZlHDc4ennE9N81ub3YHwwqvuBQIPCtBmk-qgzrtHyXwyyFlPYbj_F5hEkZAIcBOn3bB8OhpS8yUQSeWyBTFH1cblGUsXtBmYIeizXuIDF9sQ5F_orbOq8DwF92em6H1gDABAoYhCdGyA2ffHrFHh8cqZo18sNBcE3uwW4aKieF29KWlNij3-XisQFpERy-hYU4DDcZE4z66LQPVyICFOtXaaICi8VWoJweO5I643tfUp1VFaJdmYS88InHtkgKOEXkONi-sUXQ2pTA1gOxJqrfKsnhvIwZdZdSSUkRfpWeScNJTfurfvaNr1s1mzYDYju0rSPNIG_QEmRRpl46RmGpyHaAirLmLk6zsJIGvhMaj9-UCRQ1W5EliR5YAAHZEcmBfPJSuwI7R5Ne-OpQZ2MtmXHHAsoapoGVhQbAQSWzj6Hg_LyJcq0csKfbU7pzY5A7kb9-5v47R5X6uHFA1JenyANAjY7pej_mdFdHKFgoWZkaP-GSCsfBhg6_umgIgx-xVffcjg0jLJXWeLQD27lRWU0ZoQymV32wyOcZBPXtIjz4mnJtMttdqGbKyiqFOnc9yeTeKS7eY6_lm4oIQ_lKVZ5ixLCgV-OSzVKXGenFTTyhRDasPy_0bk-XWbZCiKSPj_tfpL-x_zC45b5ATvplSD2B7dFlgv_DDfXoO0zUGXOMXz1_jJN6-wlk-bf7gzKYzy9phl5LH4-3V2MYN_edSkOm0aPJZqOkD3fFMpLvyckHKYkVLC7Pa5EZpLhDpd_W1tOumNyr1gY3YrJbIO7SIHvGX538PSpQgIkqtsXLn-xHQtNuYXizf9RHXKCxSoU50Gh4wRObXg-osX4_OfzHOAM5YIenPrah2rgzluMheLjUcFbhancF8_fsWNZdWZQOYgNfHABh_m2pgpJ7ilcsa-JYJkRyECUXdcKYBZX1auZUJaMU1mMqA0AwUxvK-uTFoe5rTbtu3bXEci_b2XyppmkaakEq30XT1BdHOi7Dr14YJktWVKvRl6kc7-Xmh8qI9v9fBoPM0Q2Fb0juO7vKe4ehbfhv1sl7-PtCoZxIe8vDkhP8GUKzjHkgaeGgXD2Baff_REow-d3SoxHJmPtDI0El04zzDVQrhaVlMkyG9RepdE5mqx542eUz-6U9P7GlvzF7xBv7mIvJJ-w5D0EUDRp6wfejiuL-pZxTrUrH9vc5-gR9ug306zrmqlVS6qhU22G8p98n9ql91iWr6J1B6eHW9" nonce="f946dda0d6f8322f5bc9f1273d3f1e2d" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Quais as seguintes alterações neurológicas é frequentemente observada em indivíduos com
+        TEA?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        Crescimento acelerado do volume cerebral nos primeiros anos de vida
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Aumento da atividade no córtex pré-frontal
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Redução no número de sinapses no córtex motor
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaPontuacao()">Pontuação</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>

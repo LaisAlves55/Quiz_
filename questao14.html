@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz com Botões e Formulário</title>
+    <link rel="stylesheet" href="stylle.css">
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sBKruxrUR8Ztw6ZdgpuxbY8OGn0gfl5DbB6uThC_xFVYiUAkg3KnK8AeFO_K_CHDORgD54vHc1gMKXOHaEPiWjl7i_VRurcb86c9j-mj3FJdJvUvdqvTjbR1sglFwhx7_NqPt5QMAuCWC25Aey2SOTYNgTorBI1lBrAt8bVhc4cZvTYpAjeaGdjwN50aLQFegHOVZig-KZ8WOuavuewV_d1qj8xcd7ZtX-ChbyQbLIRtUH7cuSeBDnOGZMaLeWoEcGy1ODfu8ekhO2LyjQu2z4WAtAuMynZyHQWVGnzCPvh73FjZdPh6cSJqs-DasNnH8VLbkY1TVO0p_0jaxaL5Fk41ZBSKBQibtetJYXbaUUJkoDuYjQrc6bONZqYIk0SkhYrli3388ceIFZpD1Mo48JwquUHUSIUy6K3t_ocy2KExTz3VSnHIqhstoL8Isqdj1Kaco36Pq3nnOc56yO81abBSiz37bMkG_68ANDYAB95iYdQQikq_hr0ZCmuintAseAQAqVCE7EAOrjogCA5JhwrR0fSKPe-HxNp7Nfm_zIJp7xv1T65hl-d6fR09Ku-zz0DRJwiwq2t1QWWZ-03FUq3yuXdcXzN-kYNR9XJBtxNUA5pjQhsO4D2hgt7f5lGXvzQKyVXzHx_nc-r5HVpQg5Rx3uCZ_jYm6CiHH6iQZ9au4L6nJpv5gvmaEXqGxX5TKiJQsIUQ_GcpUB2E8BXqbAd9ioo70GyvcRolD8dICvOB8plyPgFg_ZThszgcX3aPicNZH36j1-VQHW9gyToEQiBRHCBzEhG_pKQgzXBlos6xPzNLkz-Q3nJMVTLj0-_XbrXIttuslLXiK-br7dhALg0TOaMXo0pOFqmRg5MmITEaYBorjrRQUiG-kMT7PTG9sw_o4hvO-JgyxjuVkYJmfi5MtvLZQLdpB4t9h5CAOsqrH0SeDRyF50dPsVPkB51vTXyF6spzWLt0RQxoyUlSBjn8CivdsyfYj1ko5OsH33mlvgn1sW7jVh3g5QCcVLYptlN0DMHmXAzVwc8jxlZIANlREulG9C8jvuAW98kmIDHpH3_8IoAieEDtKVZw0eDAy51CiOyGcxm7qBDeCTw5qHkkSZh7R-ou1UbvKwOzhgNxaIYQB4FJKeoaNRG8f6AJyU8Kb8hh_ZxkbenonRer-yyZdFE3Hjls6exHkhbDYNJY6RhiKXJoFc5dNYGMvWbZA_Pqlxa_LN9ZIpRxGJsnMtzsmv3Ulq8jr7aZBCTGhePi2pGWGnt__63EGiD-h_Ot25A0fK0JjvHg_9O0K8n8Ui6fH5YyHYKPoFRBG6pw0kY1bxM8xwEAEO3DNg3oADLb0x6YUK0Z21nMLw9k9RNSQUxl4xSHBKNYqL_ZUJmSS7QGfBd-l31jS8-YaK8iV5Q99xDz_fQdiLIYuWv4nHTBQw83Wxlaa8QYnQRtrk1B1IwhddnfJu2UNLGtIc2zegkeTfT4TZ7cUBGZl2Cw3gj-CmZAHomSfUW6SuqBmYPE66vtvlhujAM5bxlhe87QBF3F20I5okzPNMMbguWmg3krSjf4VgtYfD8mg-uCgbuspvdx6SJosNmFuBL-iewPc5KwwCGHwW-jaBxCYlhEI1eOaC8TA2UrxHZansuh96jloRKE1mV59tmmeDtMIjsQD7kP" nonce="dcb6ccb4dcd9d367c97ed4ad13f9de2b" charset="UTF-8"></script></head>
+<body>
+
+<div class="container">
+<form id="quiz-form" onsubmit="return verificarResposta(event)">
+    <h2>Autismo tem relação com outros transtornos?</h2>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        Autismo e dislexia são exatamente a mesma coisa.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="true">
+        O diagnóstico diferencial entre autismo e outros transtornos pode ser complexo.
+    </label>
+    <label class="option-label">
+        <input type="radio" name="resposta" value="false">
+        É fácil diferenciar o autismo do TDAH, pois não há sintomas em comum.
+    </label>
+    <button type="submit" id="submit-btn">Verificar</button>
+    <button type="button" onclick="irParaProxima()">Próxima</button>
+</form>
+</div>
+
+<div id="resultado"></div>
+
+<script>
+    function verificarResposta(event) {
+        event.preventDefault();
+        const form = document.getElementById("quiz-form");
+        const resposta = form.resposta.value;
+        const resultado = document.getElementById("resultado");
+
+        if (!resposta) {
+            resultado.innerText = "Por favor, selecione uma opção.";
+            return false;
+        }
+
+        if (resposta == "true") {
+            resultado.innerText = "Resposta correta!";
+            resultado.style.color = "green";
+        } else {
+            resultado.innerText = "Resposta incorreta.";
+            resultado.style.color = "red";
+        }
+
+        // Impede novo envio
+        const radios = form.querySelectorAll('input[type="radio"]');
+        for (const radio of radios) {
+            radio.disabled = true;
+        }
+        form.querySelector('#submit-btn').disabled = true;
+
+        return false;
+    }
+    function irParaPontuacao() {
+        window.location.href = "pontuação.html";
+    }
+    function irParaProxima() {
+        window.location.href = "questao15.html";
+    }
+    let pontuacaoAtual = parseInt(localStorage.getItem("pontuação")) || 0;
+    localStorage.setItem("pontuação", pontuacaoAtual + 1);
+
+</script>
+
+</body>
+</html>
